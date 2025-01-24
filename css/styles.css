@@ -1,1 +1,16 @@
 /* Ini File CSS */
+
+main {
+    display: flex;
+    gap: 32px;
+}
+
+.main-header {
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    gap:32px;
+    padding-bottom:16px;
+}

@@ -14,3 +14,22 @@ main {
     gap:32px;
     padding-bottom:16px;
 }
+
+form {
+    background-color:antiquewhite;
+    padding:16px;
+}
+
+.result {
+    text-align:center
+}
+
+.bg-cadet-blue {
+    background-color: cadetblue;
+    color:white;
+}
+
+.bg-black {
+    background-color: black;
+    color: antiquewhite;
+}

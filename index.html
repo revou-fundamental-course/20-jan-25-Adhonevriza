@@ -1,72 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMI</title>
     <link rel="stylesheet" href="css\styles.css">
 </head>
+
 <body>
+    <!-- HEADER -->
     <header class="main-header">
         <h1>Kalkulator BMI</h1>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main>
         <!-- Left Content-->
         <section>
             <!-- Introduction -->
             <article>
-                <p>Berat badan ideal adalah impian semua orang</p>
+                <p class="informasi-awal">Berat badan ideal merupakan impian semua orang. Tidak hanya bentuk tubuh saja yang menunjang penampilan, berat badan yang ideal juga mengindikasikan kondisi tubuh seseorang yang sehat. BMI (<i>Body Mass Index</i>) atau yang dalam bahasa Indonesia berarti Indeks Massa Tubuh merupakan ukuran yang dapat digunakan untuk menentukan kategori berat badan seseorang dengan indikator berupa berat badan (dalam kilogram) dan tinggi badan (dalam meter). BMI dapat digunakan untuk mengidentifikasi kategori berat badan, seperti kurus, ideal, kelebihan berat badan, atau obesitas. BMI juga dapat digunakan sebagai alat <i>screening</i> untuk melihat risiko kesehatan tertentu. </p>
             </article>
 
             <!-- Form -->
             <form>
-                <div class="form-group" style="padding-bottom:16px">
-                    <label for="Berat Badan (Kg)">Berat Badan (Kg)</label>
-                    <input type="number" id="input-berat-badan">
+
+                <div class="form-group-kelamin">● Jenis Kelamin
+                    <label class="container">
+                        <input type="radio" id="pria"><p class="text">Pria</p>
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">
+                        <input type="radio" id="wanita"><p class="text">Wanita</p>
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
 
-                <div class="form-group" style="padding-bottom:16px">
-                    <label for="Usia (Tahun)">Usia (Tahun)</label>
-                    <input type="number" id="input-usia">
+                <div class="form-group">
+                    <label for="input-berat-badan">● Berat Badan (kg)</label>
+                    <input type="number" id="input-berat-badan" required>
                 </div>
 
-                <div class="form-group" style="padding-bottom:16px">
-                    <label for="Tinggi Badan (cm)">Tinggi Badan (cm)</label>
-                    <input type="number" id="input-tinggi-badan">
+                <div class="form-group">
+                    <label for="input-usia">● Usia (tahun)</label>
+                    <input type="number" id="input-usia" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="input-tinggi-badan">● Tinggi Badan (cm)</label>
+                    <input type="number" id="input-tinggi-badan" required>
                 </div>
 
                 <div>
-                    <button class="bg-cadet-blue">Hitung BMI</button>
-                    <button class="bg-black">Reset</button>
+                    <button class="bg-cadet-blue" id="tombol" type="button" onclick="hitung-bmi()">Hitung BMI</button>
+                    <button class="bg-black"      id="reset"  type="button" onclick="reset()">Reset</button>
                 </div>
             </form>
 
             <!-- Feature Information -->
             <article>
-                <header>
-                    Feature Information
-                </header>
-
-                <p>Berat badan ideal adalah impian semua orang</p>
+                    <h2>Feature Information</h2>
+                    <div class="1">1. Menghitung indeks massa tubuh</div>
+                    <div class="2">2. Menentukan kategori berat badan ideal atau tidak</div>
+                    
+                    <p class="informasi-fitur">Kalkulator BMI ini hanya dapat digunakan oleh orang dewasa (wanita hamil atau menyusui tidak boleh mengandalkan hasil pembacaan BMI ini) dan tidak ada tindakan yang harus diambil berdasarkan nilainya selain berkonsultasi dengan orang yang memenuhi syarat seperti dokter.</p>
+                    <p class="informasi-fitur">Kalkulator BMI ini akan memberi Anda gambaran tentang perbandingan berat badan Anda dengan nilai umum. <i>Body Mass Index</i> (BMI) dihitung dengan membagi berat badan Anda dengan kuadrat tinggi badan Anda (dalam meter) atau dapat dituliskan rumus BMI sebagai berikut :</p>
+                    <p class="rumus-bmi">BMI = kg/m<sup>2</sup></p>
             </article>
+
+
         </section>
         
         <!-- Right Content -->
         <section>
-            <header>
+            <section class="result-section">
+                <header>
+                    <h2>Hasil</h2>
+                </header>
 
-            </header>
+                <div>
+                    <span id="result-bmi">0</span>
+                </div>
+
+                <div class="keterangan-hasil">Anda memiliki berat badan berlebih</div>
+            </section>
 
             <article>
-                <p>Berat badan ideal adalah impian semua orang</p>
+                <p class="informasi-hasil">Hasil BMI di antara 0 dan 1</p>
+                <p class="informasi-hasil">Anda berada dalam kategori <i>overweight</i> atau berat badan berlebih. Cara terbaik untuk menurunkan berat badan adalah dengan mengatur kalor makanan yang dikonsumsi dan melakukan kegiatan olahraga. Jika BMI Anda berada dalam kategori ini, maka Anda dianjurkan untuk menurunkan berat badan hingga batas normal.</p>
+                <p class="informasi-hasil">BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan tubuh dan risiko penyakit seseorang. Anda dapat berkonsultasi lebih lanjut mengenai risiko dan kekhawatiran Anda terkait dengan berat badan Anda.</p>
             </article>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <h2>Created by Evriza Ramadhan Maulana @2025</h2>
+        <span>Created by Evriza Ramadhan Maulana @2025</span>
     </footer>
+
+    <script type="text/javascipt" src="js\script.js"></script>
+
 </body>
 
 </html>

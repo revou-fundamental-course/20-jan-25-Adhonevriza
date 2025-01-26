@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator BMI</title>
-    <link rel="stylesheet" href="css\styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -20,21 +20,22 @@
         <section>
             <!-- Introduction -->
             <article>
-                <p class="informasi-awal">Berat badan ideal merupakan impian semua orang. Tidak hanya bentuk tubuh saja yang menunjang penampilan, berat badan yang ideal juga mengindikasikan kondisi tubuh seseorang yang sehat. BMI (<i>Body Mass Index</i>) atau yang dalam bahasa Indonesia berarti Indeks Massa Tubuh merupakan ukuran yang dapat digunakan untuk menentukan kategori berat badan seseorang dengan indikator berupa berat badan (dalam kilogram) dan tinggi badan (dalam meter). BMI dapat digunakan untuk mengidentifikasi kategori berat badan, seperti kurus, ideal, kelebihan berat badan, atau obesitas. BMI juga dapat digunakan sebagai alat <i>screening</i> untuk melihat risiko kesehatan tertentu. </p>
+                <p class="informasi-awal">Berat badan ideal merupakan impian semua orang. Tidak hanya bentuk tubuh saja yang menunjang penampilan, berat badan yang ideal juga mengindikasikan kondisi tubuh seseorang yang sehat. BMI (<i>Body Mass Index</i>) atau yang dalam bahasa Indonesia berarti Indeks Massa Tubuh merupakan ukuran yang dapat digunakan untuk menentukan kategori berat badan seseorang dengan indikator berupa berat badan (dalam kilogram) dan tinggi badan (dalam meter). BMI dapat digunakan untuk mengidentifikasi kategori berat badan, seperti kurus, ideal, kelebihan berat badan, atau obesitas. BMI juga dapat digunakan sebagai alat <i>screening</i> untuk melihat risiko kesehatan tertentu.</p>
             </article>
 
             <!-- Form -->
             <form>
-
                 <div class="form-group-kelamin">● Jenis Kelamin
                     <label class="container">
-                        <input type="radio" id="pria"><p class="text">Pria</p>
+                        <input type="radio" name="kelamin" id="pria">
                         <span class="checkmark"></span>
+                        <span class="text">Pria</span>
                     </label>
-
+                
                     <label class="container">
-                        <input type="radio" id="wanita"><p class="text">Wanita</p>
+                        <input type="radio" name="kelamin" id="wanita">
                         <span class="checkmark"></span>
+                        <span class="text">Wanita</span>
                     </label>
                 </div>
 
@@ -54,53 +55,53 @@
                 </div>
 
                 <div>
-                    <button class="bg-cadet-blue" id="tombol" type="button" onclick="hitung-bmi()">Hitung BMI</button>
-                    <button class="bg-black"      id="reset"  type="button" onclick="reset()">Reset</button>
+                    <button class="bg-cadet-blue" id="tombol" type="button" onclick="calculate()">Hitung BMI</button>
+                    <button class="bg-black" id="reset" type="button" onclick="reset()">Reset</button>
                 </div>
             </form>
 
             <!-- Feature Information -->
             <article>
-                    <h2>Feature Information</h2>
-                    <div class="1">1. Menghitung indeks massa tubuh</div>
-                    <div class="2">2. Menentukan kategori berat badan ideal atau tidak</div>
-                    
-                    <p class="informasi-fitur">Kalkulator BMI ini hanya dapat digunakan oleh orang dewasa (wanita hamil atau menyusui tidak boleh mengandalkan hasil pembacaan BMI ini) dan tidak ada tindakan yang harus diambil berdasarkan nilainya selain berkonsultasi dengan orang yang memenuhi syarat seperti dokter.</p>
-                    <p class="informasi-fitur">Kalkulator BMI ini akan memberi Anda gambaran tentang perbandingan berat badan Anda dengan nilai umum. <i>Body Mass Index</i> (BMI) dihitung dengan membagi berat badan Anda dengan kuadrat tinggi badan Anda (dalam meter) atau dapat dituliskan rumus BMI sebagai berikut :</p>
-                    <p class="rumus-bmi">BMI = kg/m<sup>2</sup></p>
+                <h2>Feature Information</h2>
+                <div class="1">1. Menghitung indeks massa tubuh</div>
+                <div class="2">2. Menentukan kategori berat badan ideal atau tidak</div>
+                
+                <p class="informasi-fitur">Kalkulator BMI ini hanya dapat digunakan oleh orang dewasa (wanita hamil atau menyusui tidak boleh mengandalkan hasil pembacaan BMI ini) dan tidak ada tindakan yang harus diambil berdasarkan nilainya selain berkonsultasi dengan orang yang memenuhi syarat seperti dokter.</p>
+                <p class="informasi-fitur">Kalkulator BMI ini akan memberi Anda gambaran tentang perbandingan berat badan Anda dengan nilai umum. <i>Body Mass Index</i> (BMI) dihitung dengan membagi berat badan Anda dengan kuadrat tinggi badan Anda (dalam meter) atau dapat dituliskan rumus BMI sebagai berikut :</p>
+                <p class="rumus-bmi">BMI = kg/m<sup>2</sup></p>
             </article>
-
-
         </section>
         
         <!-- Right Content -->
-        <section>
-            <section class="result-section">
-                <header>
-                    <h2>Hasil</h2>
-                </header>
+<section>
+    <section class="result-section">
+        <header>
+            <h2>Hasil</h2>
+        </header>
 
-                <div>
-                    <span id="result-bmi">0</span>
-                </div>
+        <div>
+            <span id="result-bmi">0.00</span>
+        </div>
 
-                <div class="keterangan-hasil">Anda memiliki berat badan berlebih</div>
-            </section>
+        <p class="keterangan-hasil">Hasil Perhitungan BMI Anda Akan Ditampilkan Di Sini</p>
 
-            <article>
-                <p class="informasi-hasil">Hasil BMI di antara 0 dan 1</p>
-                <p class="informasi-hasil">Anda berada dalam kategori <i>overweight</i> atau berat badan berlebih. Cara terbaik untuk menurunkan berat badan adalah dengan mengatur kalor makanan yang dikonsumsi dan melakukan kegiatan olahraga. Jika BMI Anda berada dalam kategori ini, maka Anda dianjurkan untuk menurunkan berat badan hingga batas normal.</p>
-                <p class="informasi-hasil">BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan tubuh dan risiko penyakit seseorang. Anda dapat berkonsultasi lebih lanjut mengenai risiko dan kekhawatiran Anda terkait dengan berat badan Anda.</p>
-            </article>
-        </section>
+    </section>
+
+    <article>
+        <p class="nilai-hasil"></p>
+        <p class="informasi-hasil"></p>
+        <p class="informasi-hasil">BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan tubuh dan risiko penyakit seseorang. Anda dapat berkonsultasi lebih lanjut mengenai risiko dan kekhawatiran Anda terkait dengan berat badan Anda.</p>
+    </article>
+</section>
     </main>
 
     <!-- FOOTER -->
-    <footer>
-        <span>Created by Evriza Ramadhan Maulana @2025</span>
-    </footer>
+    <!-- FOOTER -->
+<footer>
+    <p>Created by Evriza Ramadhan Maulana @2025. Connect with me on <a href="https://www.linkedin.com/in/evriza-ramadhan-maulana" target="_blank">LinkedIn</a></p>
+</footer>
 
-    <script type="text/javascipt" src="js\script.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 
 </body>
 

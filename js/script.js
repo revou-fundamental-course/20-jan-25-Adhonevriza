@@ -1,53 +1,36 @@
-// Ini File Javascript
+function calculate() {
+    // Mengambil nilai dari input
+    const weight = parseFloat(document.getElementById("input-berat-badan").value);
+    const height = parseFloat(document.getElementById("input-tinggi-badan").value) / 100; // Konversi cm ke m
 
-var pria = document.getElementById("pria")
-var wanita = document.getElementById("wanita")
-var berat_badan = document.getElementById("input-berat-badan")
-var usia = document.getElementById("input-usia")
-var tinggi_badan = document.getElementById("input-tinggi-badan")
+    // Menghitung BMI
+    const bmi = weight / (height * height);
+    document.getElementById("result-bmi").innerText = bmi.toFixed(2); // Menampilkan hasil BMI dengan 2 digit desimal
 
-function calculate(){
- 
-    if(usia.value=='' || berat_badan.value=='' || tinggi_badanvalue=='' || (pria.checked==false && wanita.checked==false)){
-      modal.style.display = "block";
-      modalText.innerHTML = `All fields are required!`;
-  
-    }else{
-      hitung();
+    // Menentukan kategori BMI dan penjelasan
+    let category;
+    let explanation;
+
+    if (bmi < 18.5) {
+        category = "kekurangan berat badan";
+        nilai = "Hasil BMI berada di bawah 18,5";
+        explanation = "Anda berada dalam kategori kekurangan berat badan. Cara terbaik untuk meningkatkan berat badan adalah meningkatkan pola makan dengan memilih makanan padat kalori dan melakukan kegiatan olahraga. Jika BMI Anda berada dalam kategori ini, maka Anda dianjurkan untuk meningkatkan berat badan hingga batas ideal.";
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+        category = "berat badan ideal";
+        nilai = "Hasil BMI berada di antara 18 dan 25";
+        explanation = "Anda berada dalam kategori normal (ideal). Cara terbaik untuk mempertahankan berat badan adalah mengatur dan mempertahankan pola makanan yang dikonsumsi dan melakukan kegiatan olahraga. Jika BMI Anda berada dalam kategori ini, maka Anda dianjurkan untuk mempertahankan berat badan yang ideal ini.";
+    } else if (bmi >= 25 && bmi < 29.9) {
+        category = "berat badan berlebih";
+        nilai = "Hasil BMI berada di antara 25 dan 30";
+        explanation = "Anda berada dalam kategori overweight atau berat badan berlebih. Cara terbaik untuk menurunkan berat badan adalah kengatur kalor makanan yang dikonsumsi dan melakukan kegiatan olahraga. Jika BMI Anda berada dalam kategori ini, maka Anda dianjurkan untuk menurunkan berat badan hingga batas normal.";
+    } else {
+        category = "obesitas";
+        nilai = "Hasil BMI berada di atas 30";
+        explanation = "Anda berada dalam kategori obesitas. Cara terbaik untuk menurunkan berat badan adalah mengatur kalor makanan yang dikonsumsi dan melakukan kegiatan olahraga. Jika BMI Anda berada dalam kategori ini, maka Anda dianjurkan untuk menurunkan berat badan hingga batas normal.";
     }
-  
-  }
 
-function hitung()
-{
-    function countBmi(){
-        var p = [usia.value, tinggi_badan.value, berat_badan.value];
-        if(pria.checked){
-          p.push("pria");
-        }else if(wanita.checked){
-          p.push("wanita");
-        }
-      
-        var bmi = Number(p[2])/(Number(p[1])/100*Number(p[1])/100);
-            
-        var result = '';
-        if(bmi<18.5) {
-          result = 'Underweight';
-           }
-
-        else if(18.5<=bmi&&bmi<=24.9) {
-          result = 'Healthy';
-           }
-
-        else if(25<=bmi&&bmi<=29.9) {
-          result = 'Overweight';
-           }
-
-        else if(30<=bmi&&bmi<=34.9) {
-          result = 'Obese';
-           }
-
-        else if(35<=bmi) {
-          result = 'Extremely obese';
-           }
+    // Menampilkan kategori dan penjelasan
+    document.querySelector(".keterangan-hasil").innerText = `Anda memiliki ${category}`;
+    document.querySelector(".informasi-hasil").innerText = `${explanation}`;
+    document.querySelector(".nilai-hasil").innerText = `${nilai}`;
 }

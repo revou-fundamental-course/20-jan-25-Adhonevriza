@@ -1,9 +1,14 @@
-/* Ini File CSS */
+/* CSS Variables */
+:root {
+    --primary-color: cadetblue;
+    --secondary-color: gainsboro;
+    --text-color: antiquewhite;
+}
 
-/* Class */
+/* Class Styles */
 .bg-black {
     background-color: black;
-    color: antiquewhite;
+    color: var(--text-color);
 }
 
 .bg-black:hover {
@@ -13,30 +18,54 @@
 }
 
 .bg-cadet-blue {
-    background-color: cadetblue;
-    color:azure;
-
+    background-color: var(--primary-color);
+    color: azure;
 }
 
 .bg-cadet-blue:hover {
     color: white;
     font-weight: 700;
     font-size: 12.5px;
-    
-}
-
-..checkmark {
-    margin-right: 8px; /* Jarak antara checkmark dan teks */
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-    display: inline-block; /* Pastikan checkmark ditampilkan sebagai blok inline */
 }
 
 .container {
     display: flex;
-    align-items: center; /* Menyelaraskan item di tengah secara vertikal */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    position: relative; /* Mengatur posisi relatif untuk penempatan absolut checkmark */
+    padding-left: 35px; /* Memberikan ruang untuk checkmark */
+}
+
+.checkmark {
+    height: 25px; /* Ukuran checkmark */
+    width: 25px; /* Ukuran checkmark */
+    background-color: #eee; /* Warna latar belakang checkmark */
+    border-radius: 50%; /* Membuat checkmark berbentuk lingkaran */
+    position: absolute; /* Menempatkan checkmark secara absolut */
+    left: 0; /* Menyelaraskan ke kiri */
+    top: 50%; /* Memusatkan secara vertikal */
+    transform: translateY(-50%); /* Menyesuaikan untuk pemusatan vertikal */
+    z-index: 1; /* Menempatkan checkmark di atas */
+}
+
+input[type="radio"] {
+    opacity: 0; /* Menyembunyikan tombol radio default */
+    position: absolute; /* Menempatkannya secara absolut untuk menghindari pengaruh pada tata letak */
+}
+
+input[type="radio"]:checked + .checkmark {
+    background-color: cadetblue; /* Mengubah warna latar belakang saat terpilih */
+}
+
+input[type="radio"]:checked + .checkmark::after {
+    content: ''; /* Menambahkan konten kosong untuk checkmark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px; /* Ukuran checkmark */
+    height: 10px; /* Ukuran checkmark */
+    background-color: white; /* Warna checkmark */
+    border-radius: 50%; /* Membuat checkmark berbentuk lingkaran */
+    transform: translate(-50%, -50%); /* Memusatkan checkmark */
 }
 
 .form-group {
@@ -55,20 +84,14 @@
     padding-bottom: 5px;
 }
 
-.informasi-awal {
-    text-align: justify;
-}
-
-.informasi-fitur {
-    text-align: justify;
-}
-
+.informasi-awal,
+.informasi-fitur,
 .informasi-hasil {
     text-align: justify;
 }
 
 .keterangan-hasil {
-    padding: 16px;;
+    padding: 16px;
 }
 
 .main-header {
@@ -79,7 +102,7 @@
 }
 
 .result {
-    text-align: center
+    text-align: center;
 }
 
 #result-bmi {
@@ -90,33 +113,31 @@
 .result-section {
     padding: 16px;
     text-align: center;
-    background-color: gainsboro;
+    background-color: var(--secondary-color);
 }
 
 .rumus-bmi {
     font-weight: bold;
     font-size: 20px;
     color: white;
-    background-color: cadetblue;
-    display: flex;
+    background-color: var(--primary-color);
     border: 1px solid black;
     width: fit-content;
     padding: 10px;
-    border: 1px solid black;
     border-radius: 5px;
 }
 
-/* Selain Class */
-
+/* General Styles */
 button {
     border-radius: 5px;
     border: none;
     padding: 8px;
-    color: antiquewhite;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 form {
-    background-color: gainsboro;
+    background-color: var(--secondary-color);
     padding: 32px;
 }
 
@@ -124,7 +145,7 @@ footer {
     font-style: italic;
     font-weight: bold;
     font-size: 20px;
-    background-color: gainsboro;
+    background-color: var(--secondary-color);
     text-align: center;
     padding: 5px;
 }
@@ -133,8 +154,7 @@ input[type=number] {
     font-size: 16px;
     font-weight: bold;
     width: 100%;
-    padding: 12px 12px;
-    margin-right: 20px;
+    padding: 12px;
     box-sizing: border-box;
 }
 
@@ -144,4 +164,12 @@ main {
     display: flex;
     gap: 60px;
     padding: 32px;
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+    main {
+        flex-direction: column;
+        gap: 20px;
+    }
 }

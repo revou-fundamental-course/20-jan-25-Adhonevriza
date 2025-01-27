@@ -1,15 +1,37 @@
+function reset_data() {
+    document.getElementById('input-berat-badan').value = '';
+    document.getElementById('input-tinggi-badan').value = '';
+    document.getElementById('input-usia').value = '';
+    document.getElementById('result-bmi').innerText = '0.00';
+    document.querySelector('.nilai-hasil').innerText = '';
+    document.querySelector('input[name="kelamin"]:checked').checked = false; // Menghapus pilihan jenis kelamin
+}
+
 function calculate() {
-    // Mengambil nilai dari input
-    const weight = parseFloat(document.getElementById("input-berat-badan").value);
-    const height = parseFloat(document.getElementById("input-tinggi-badan").value) / 100; // Konversi cm ke m
+    // Mendapatkan nilai dari input
+    const gender = document.querySelector('input[name="kelamin"]:checked');
+    const weight = parseFloat(document.getElementById('input-berat-badan').value);
+    const height = parseFloat(document.getElementById('input-tinggi-badan').value) / 100; // Mengonversi cm ke meter
+    const age = parseInt(document.getElementById('input-usia').value);
+
+    // Memeriksa apakah semua input telah diisi
+    if (!gender || isNaN(weight) || isNaN(height) || isNaN(age)) {
+        alert("Mohon isi semua bagian form yang tersedia");
+        return; // Menghentikan eksekusi jika ada input yang tidak valid
+    }
+
+    else if (height <= 0 || age <= 0 || weight <= 0) {
+        alert("Mohon isi semua bagian form dengan data yang valid")
+    }
 
     // Menghitung BMI
     const bmi = weight / (height * height);
-    document.getElementById("result-bmi").innerText = bmi.toFixed(2); // Menampilkan hasil BMI dengan 2 digit desimal
+    document.getElementById('result-bmi').innerText = bmi.toFixed(2);
+    displayBMI(bmi);
+    }
 
-    // Menentukan kategori BMI dan penjelasan
-    let category;
-    let explanation;
+function displayBMI(bmi) {
+let category, nilai, explanation;
 
     if (bmi < 18.5) {
         category = "kekurangan berat badan";
@@ -32,5 +54,7 @@ function calculate() {
     // Menampilkan kategori dan penjelasan
     document.querySelector(".keterangan-hasil").innerText = `Anda memiliki ${category}`;
     document.querySelector(".informasi-hasil").innerText = `${explanation}`;
+    docum
+    
     document.querySelector(".nilai-hasil").innerText = `${nilai}`;
 }

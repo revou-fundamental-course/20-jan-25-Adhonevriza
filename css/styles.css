@@ -3,6 +3,7 @@
     --primary-color: cadetblue;
     --secondary-color: gainsboro;
     --text-color: antiquewhite;
+    --background-color: #f4f4f4;
 }
 
 /* Class Styles */
@@ -28,43 +29,62 @@
     font-size: 12.5px;
 }
 
-.container {
-    display: flex;
-    align-items: center; /* Menyelaraskan item secara vertikal */
-    position: relative; /* Mengatur posisi relatif untuk penempatan absolut checkmark */
-    padding-left: 35px; /* Memberikan ruang untuk checkmark */
+.bmi-container {
+    position: relative; /* Mengatur posisi relatif untuk menempatkan elemen anak secara absolut */
+    display: inline-block; /* Mengatur elemen menjadi inline-block agar bisa memiliki ukuran */
+    margin: 20px;
+}
+
+.bmi-container::before {
+    content: '';
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    width: 100px;
+    height: 100px; 
+    background-color: cadetblue;
+    border-radius: 50%;
+    transform: translate(-50%, -50%); 
+    z-index: 0;
 }
 
 .checkmark {
-    height: 25px; /* Ukuran checkmark */
-    width: 25px; /* Ukuran checkmark */
-    background-color: #eee; /* Warna latar belakang checkmark */
-    border-radius: 50%; /* Membuat checkmark berbentuk lingkaran */
-    position: absolute; /* Menempatkan checkmark secara absolut */
-    left: 0; /* Menyelaraskan ke kiri */
-    top: 50%; /* Memusatkan secara vertikal */
+    height: 25px; 
+    width: 25px; 
+    background-color: #eee;
+    border-radius: 50%;
+    position: absolute;
+    left: 0; 
+    top: 50%; 
     transform: translateY(-50%); /* Menyesuaikan untuk pemusatan vertikal */
     z-index: 1; /* Menempatkan checkmark di atas */
 }
 
+.container {
+    display: flex;
+    align-items: center; 
+    position: relative;
+    padding-left: 35px; 
+}
+
 input[type="radio"] {
-    opacity: 0; /* Menyembunyikan tombol radio default */
-    position: absolute; /* Menempatkannya secara absolut untuk menghindari pengaruh pada tata letak */
+    opacity: 0;
+    position: absolute;
 }
 
 input[type="radio"]:checked + .checkmark {
-    background-color: cadetblue; /* Mengubah warna latar belakang saat terpilih */
+    background-color: cadetblue;
 }
 
 input[type="radio"]:checked + .checkmark::after {
-    content: ''; /* Menambahkan konten kosong untuk checkmark */
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 10px; /* Ukuran checkmark */
-    height: 10px; /* Ukuran checkmark */
-    background-color: white; /* Warna checkmark */
-    border-radius: 50%; /* Membuat checkmark berbentuk lingkaran */
+    width: 10px; 
+    height: 10px; 
+    background-color: white; 
+    border-radius: 50%;
     transform: translate(-50%, -50%); /* Memusatkan checkmark */
 }
 
@@ -84,13 +104,19 @@ input[type="radio"]:checked + .checkmark::after {
     padding-bottom: 5px;
 }
 
-.informasi-awal,
-.informasi-fitur,
-.informasi-hasil {
+.informasi-awal, .informasi-fitur, .informasi-hasil {
     text-align: justify;
 }
 
+#hasil {
+    position: relative;
+}
+
 .keterangan-hasil {
+    font-size: 20px;
+    font-family: math;
+    font-weight: bold;
+    text-decoration: wavy;
     padding: 16px;
 }
 
@@ -98,7 +124,8 @@ input[type="radio"]:checked + .checkmark::after {
     text-align: center;
     background-color: powderblue;
     border-radius: 10px;
-    padding: 1px;
+    padding: 20px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .result {
@@ -106,7 +133,12 @@ input[type="radio"]:checked + .checkmark::after {
 }
 
 #result-bmi {
-    font-size: xxx-large;
+    position:relative;
+    color: white;
+    z-index: 1; /* Menempatkan angka di atas lingkaran */
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: black;
     font-family: math;
 }
 
@@ -114,6 +146,8 @@ input[type="radio"]:checked + .checkmark::after {
     padding: 16px;
     text-align: center;
     background-color: var(--secondary-color);
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .rumus-bmi {
@@ -131,14 +165,21 @@ input[type="radio"]:checked + .checkmark::after {
 button {
     border-radius: 5px;
     border: none;
-    padding: 8px;
+    padding: 10px 15px; 
     color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #5f9ea0; 
+    transform: scale(1.05);
 }
 
 form {
     background-color: var(--secondary-color);
     padding: 32px;
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
 footer {
@@ -147,7 +188,8 @@ footer {
     font-size: 20px;
     background-color: var(--secondary-color);
     text-align: center;
-    padding: 5px;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 input[type=number] {
@@ -156,6 +198,8 @@ input[type=number] {
     width: 100%;
     padding: 12px;
     box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 main {

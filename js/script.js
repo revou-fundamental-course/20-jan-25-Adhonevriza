@@ -34,25 +34,25 @@ function displayBMI(bmi) {
 let category, nilai, explanation;
 
     if (bmi < 18.5) {
-        category = "kekurangan berat badan";
+        category = "Kekurangan Berat Badan";
         nilai = "Hasil BMI berada di bawah 18,5";
         explanation = "Anda berada dalam kategori kekurangan berat badan. Cara terbaik untuk meningkatkan berat badan adalah meningkatkan pola makan dengan memilih makanan padat kalori dan melakukan kegiatan olahraga. Jika BMI Anda berada dalam kategori ini, maka Anda dianjurkan untuk meningkatkan berat badan hingga batas ideal.";
     } else if (bmi >= 18.5 && bmi < 24.9) {
-        category = "berat badan ideal";
+        category = "Berat Badan Ideal";
         nilai = "Hasil BMI berada di antara 18 dan 25";
         explanation = "Anda berada dalam kategori normal (ideal). Cara terbaik untuk mempertahankan berat badan adalah mengatur dan mempertahankan pola makanan yang dikonsumsi dan melakukan kegiatan olahraga. Jika BMI Anda berada dalam kategori ini, maka Anda dianjurkan untuk mempertahankan berat badan yang ideal ini.";
     } else if (bmi >= 25 && bmi < 29.9) {
-        category = "berat badan berlebih";
+        category = "Berat Badan Berlebih";
         nilai = "Hasil BMI berada di antara 25 dan 30";
         explanation = "Anda berada dalam kategori overweight atau berat badan berlebih. Cara terbaik untuk menurunkan berat badan adalah kengatur kalor makanan yang dikonsumsi dan melakukan kegiatan olahraga. Jika BMI Anda berada dalam kategori ini, maka Anda dianjurkan untuk menurunkan berat badan hingga batas normal.";
     } else {
-        category = "obesitas";
+        category = "Obesitas";
         nilai = "Hasil BMI berada di atas 30";
         explanation = "Anda berada dalam kategori obesitas. Cara terbaik untuk menurunkan berat badan adalah mengatur kalor makanan yang dikonsumsi dan melakukan kegiatan olahraga. Jika BMI Anda berada dalam kategori ini, maka Anda dianjurkan untuk menurunkan berat badan hingga batas normal.";
     }
 
     // Menampilkan kategori dan penjelasan
-    document.querySelector(".keterangan-hasil").innerText = `Anda memiliki ${category}`;
+    document.querySelector(".keterangan-hasil").innerText = `Anda Memiliki ${category}`;
     document.querySelector(".informasi-hasil").innerText = `${explanation}`;
     docum
     

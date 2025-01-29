@@ -24,11 +24,13 @@ function calculate() {
         alert("Mohon isi semua bagian form dengan data yang valid")
     }
 
-    // Menghitung BMI
-    const bmi = weight / (height * height);
-    document.getElementById('result-bmi').innerText = bmi.toFixed(2);
-    displayBMI(bmi);
+    else if (height > 0 && age > 0 && weight > 0) {
+        // Menghitung BMI
+        const bmi = weight / (height * height);
+        document.getElementById('result-bmi').innerText = bmi.toFixed(2);
+        displayBMI(bmi);
     }
+}
 
 function displayBMI(bmi) {
 let category, nilai, explanation;

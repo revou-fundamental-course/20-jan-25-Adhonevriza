@@ -126,14 +126,13 @@
 
 #konsul-ahli-gizi {
     display: none;
-    min-width: 245px;
+    width: fit-content;
     padding: 10px;
     text-align: center;
     text-decoration: none;
-    display: none;
     border-radius: 5px;
     border: none;
-    margin-right: 3px;
+    margin-right: 2px;
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
@@ -174,12 +173,13 @@
 
 #regis-online {
     display: none;
-    min-width: 245px;
+    width: fit-content;
     padding: 10px;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
     border: none;
+    margin-right: 2px;
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
@@ -217,7 +217,6 @@
 .rumus-bmi {
     display: block;
     min-width: 200px;
-    width: fit-content;
     text-align: center;
     font-weight: bold;
     font-size: 20px;

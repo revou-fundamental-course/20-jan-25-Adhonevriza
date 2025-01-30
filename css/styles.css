@@ -18,16 +18,17 @@
     font-size: 12.75px;
 }
 
-.bg-cadet-blue {
+.bg-cadet-blue, .konsul-ahli-gizi, .regis-online {
     background-color: var(--primary-color);
-    color: azure;
+    color: var(--text-color);
 }
 
 .bg-cadet-blue:hover {
     color: white;
     font-weight: 700;
-    font-size: 12.5px;
+    font-size: 12.75px;
 }
+
 
 .bmi-container {
     position: relative; /* Mengatur posisi relatif untuk menempatkan elemen anak secara absolut */
@@ -72,6 +73,17 @@
     padding-left: 35px; 
 }
 
+.container-penyakit {
+    display: none;
+    text-align: center;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    align-items: center; 
+    position: relative;
+    background-color: var(--secondary-color);
+}
+
 .form-group {
     font-weight: bold;
     display: flex;
@@ -88,17 +100,16 @@
     padding-bottom: 5px;
 }
 
-.informasi-awal, .informasi-fitur, .informasi-hasil, .informasi-tambahan{
-    text-align: justify;
-}
-
 #hasil {
     position: relative;
 }
 
 .identitas-diri {
-    font-weight: bold;
     text-align: center;
+}
+
+.informasi-awal, .informasi-fitur, .informasi-hasil, .informasi-tambahan{
+    text-align: justify;
 }
 
 .jenis-kelamin, .berat-badan, .tinggi-badan, .usia {
@@ -113,6 +124,28 @@
     padding: 16px;
 }
 
+#konsul-ahli-gizi {
+    display: none;
+    min-width: 245px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: none;
+    border-radius: 5px;
+    border: none;
+    margin-right: 3px;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+#konsul-ahli-gizi:hover {
+    text-decoration: none;
+    font-weight: 500;
+    background-color: var(--primary-color);
+    color: white; 
+    transform: scale(1.025);
+}
+
 .konten-utama {
     display: flex;
 }
@@ -125,9 +158,9 @@
 
 .main-header {
     text-align: center;
-    background-color: powderblue;
+    background-color: rgb(55, 152, 185);
     border-radius: 10px;
-    padding: 20px; 
+    padding: 10px; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -137,6 +170,26 @@
     font-style: italic;
     text-decoration: underline;
     font-size: 18px;
+}
+
+#regis-online {
+    display: none;
+    min-width: 245px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+#regis-online:hover {
+    text-decoration: none;
+    font-weight: 500;
+    background-color: var(--primary-color); 
+    color: white;
+    transform: scale(1.025);
 }
 
 .result {
@@ -162,20 +215,34 @@
 }
 
 .rumus-bmi {
+    display: block;
+    min-width: 200px;
+    width: fit-content;
+    text-align: center;
     font-weight: bold;
     font-size: 20px;
     color: white;
     background-color: var(--primary-color);
     border: 1px solid black;
     width: fit-content;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 15px;
     border-radius: 5px;
     transition: transform 0.3s;
+    margin: 0 auto;
 }
 
 .rumus-bmi:hover {
     transform: scale(1.05);
 }
+
+.tombol-konsultasi {
+    display: flex; /* Menggunakan Flexbox */
+    justify-content: space-between; /* Menyebar tombol ke kiri dan kanan */
+    margin-top: 10px;
+}
+
+/* ------------------------------------------------------------------- */
 
 /* General Styles */
 a {
@@ -186,7 +253,7 @@ a:hover {
     color:mediumblue;
 }
 
-button {
+button, .konsul-ahli-gizi, .regis-online {
     border-radius: 5px;
     border: none;
     padding: 10px 15px; 
@@ -207,13 +274,17 @@ form {
 }
 
 footer {
+    background-color: rgb(55, 152, 185);
     font-style: italic;
     font-weight: bold;
     font-size: 20px;
-    background-color: var(--secondary-color);
     text-align: center;
     padding: 10px;
     border-radius: 5px;
+}
+
+html {
+    background-color: #c6dada;
 }
 
 input[type=number] {
@@ -248,6 +319,7 @@ input[type="radio"]:checked + .checkmark::after {
 }
 
 main {
+    background-color: #c6dada;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
     display: flex;
@@ -256,9 +328,9 @@ main {
 }
 
 /* Media Queries */
-@media (max-width: 600px) {
+@media (max-width: 720px) {
     main {
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
     }
 }
